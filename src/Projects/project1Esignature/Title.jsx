@@ -1,6 +1,6 @@
-const Title = ({text}) => {
+const Title = ({text, classes}) => {
 
-    return <h1> {!text ? "Labas" : text} </h1>
+    return <h1 className={classes}> {!text ? "Labas" : text} </h1>
 }
 
 

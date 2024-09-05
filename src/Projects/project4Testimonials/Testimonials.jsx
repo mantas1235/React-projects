@@ -1,56 +1,61 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import { useState,useEffect } from 'react'
+import Buttons from "../../ComponentsForUse/Buttons"
 import Title from '../project1Esignature/Title'
-import Buttons from '../../ComponentsForUse/Buttons'
-import { BsFillFileEarmarkPostFill } from 'react-icons/bs'
-import { FaUserAlt } from 'react-icons/fa'
-import { BiCommentDetail } from 'react-icons/bi'
+
+
+
+
 
 function Testimonials() {
 
-const [testimonials, settestimonials] = useState()
-const [items, setItems] = useState([])
+
+    const [testimonials, setTestimonials] = useState("")
+    const [items, setItems] = useState("")
+
+ 
 
 
 useEffect(() => {
-  const fetchData = async () => {
-    if (testimonials) {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/${testimonials}`);
-      const json = await response.json();
-      setItems(json);
-    }
-  };
-  fetchData();
-}, [testimonials]);
-
-
+fetch(`https://jsonplaceholder.typicode.com/${testimonials}`)
+.then(response => response.json())
+.then(data => setItems(data))
+}, [testimonials])
+    
   return (
     <div className='container'>
-<Title text={"Testimonial app"}/> 
 
-<Buttons text={"Posts"} btnClass = {"btn btn-warning"} icon ={<BsFillFileEarmarkPostFill />} onClick={()=> settestimonials("Posts")}/>
-<Buttons text={"Users"} btnClass = {"btn btn-warning"} icon ={<FaUserAlt />} onClick={()=> settestimonials("Users")}/>
-<Buttons text={"Comments"} btnClass = {"btn btn-warning"} icon ={<BiCommentDetail />} onClick={()=> settestimonials("Comments")}/>
+<Title text={"Testimonials app"}/>
 
 
-<Title text={!testimonials ? "Select from above" : testimonials} />
+<div className='d-flex' style={{gap:10}}>
+<Buttons btnClass="btn-success" text={"Posts"} onClick={()=> setTestimonials("Posts")}/>
+<Buttons btnClass="btn-success" text={"users"} onClick={()=> setTestimonials("Users")}/>
+<Buttons btnClass="btn-success" text={"Comments"} onClick={()=> setTestimonials("Comments")}/>
 
 
-{!items ? null : items.map( (item) => {
-  return(
-<div className='card card-primary mb-2' key={item.id}>{item.name && <h2 className='card-header'>{item.name}</h2>}
-  <div className="card-body">
-    <h4>{item.title}</h4>
-    <p>{item.body}</p>
-  </div>
-
-  {item.email && (
-    <small className='card-footer'>{item.email}</small>
-  )}
 </div>
 
+<Title classes={"subtitle text-primary"} text={!testimonials ? "Select from above" : testimonials} />
 
-  ) 
+{!items ? null
+ : items.map((item)=> {
+    return <div className="card card-primary mb-2" key={item.id}>
+        
+        
+        {item.name && <h2 className='card-header'>{item.name}</h2>}
+        <div className="card-body">
+            <h4>{item.title}</h4>
+            <p>{item.body}</p>
+        </div>
+        {item.email && (
+            <small className='card-footer'>{items.email}</small>
+        )}
+        
+        </div>
 })}
+
+
     </div>
   )
 }

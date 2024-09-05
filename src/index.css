@@ -4,3 +4,21 @@
 .button {
   width: 100px;
 }
+
+
+
+.fadeAlert {
+  animation: fadeAlert 0.3s ease;
+}
+
+
+@keyframes fadeAlert {
+0% {
+  transform: scale(1);
+}
+
+100% {
+  transform: scale(0);
+}
+
+}
