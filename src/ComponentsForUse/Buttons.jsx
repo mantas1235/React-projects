@@ -1,12 +1,10 @@
-
-
-function Buttons({btnClass, text ="click", icon, onClick}) {
-
-
-
+function Buttons({ btnClass, text = "click", icon, onClick }) {
   return (
-   <button className={`btn ${btnClass} btn-sm`} onClick={onClick}>{icon}{text}</button>
-  )
+    <button className={`btn ${btnClass} btn-sm`} onClick={onClick}>
+      {icon}
+      {text}
+    </button>
+  );
 }
 
-export default Buttons
+export default Buttons;
