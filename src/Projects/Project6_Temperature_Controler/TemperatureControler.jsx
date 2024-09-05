@@ -25,8 +25,8 @@ setTemperature(temperature - 1)
     
 </div>
 
-<Buttons text='+' btnClass = {"btn-lg bg-primary "} onClick={HandleTemp}/>
-<Buttons text='-' btnClass = {"btn-lg bg-danger m-3"} onClick={MinusTemp}/>
+<Buttons text='+' btnClass = {"btn-lg bg-danger "} onClick={HandleTemp}/>
+<Buttons text='-' btnClass = {"btn-lg bg-primary m-3"} onClick={MinusTemp}/>
 
 <div className="d-flex my-2">
 
