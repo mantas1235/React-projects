@@ -8,8 +8,8 @@ import './App.css';
 // import Esignature from "./Projects/project1Esignature/Esignature"
 // import PhotoLike from './Projects/project3likePhoto/PhotoLike';
 // import LightAndDarkMode from './Projects/project7_DarkLight/LightAndDarkMode';
-import SlideToGrow from './Projects/project9_SlideTogrow/SlideToGrow';
-
+// import SlideToGrow from './Projects/project9_SlideTogrow/SlideToGrow';
+import HiddenSearch from './Projects/project10_hiddenSearch/HiddenSearch';
 
 
 
@@ -32,7 +32,8 @@ function App() {
 
 {/* <SlideToUnlock /> */}
 
-<SlideToGrow />
+{/* <SlideToGrow /> */}
+<HiddenSearch />
 </>
   );
 }
