@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 function SlideToGrow() {
 
-const [slideValue, setSlideValue] = useState(20)
+const [slideValue, setSlideValue] = useState(0)
 
 const handleSliderValueChange = (e) => {
 setSlideValue(e.target.value)

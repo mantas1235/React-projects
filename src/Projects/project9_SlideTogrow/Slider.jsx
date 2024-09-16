@@ -1,7 +1,7 @@
 
-import React from 'react'
 
-function Slider({setValue, handleValue, textColor,bgColor}) {
+
+function Slider({handleValue, setValue, textColor,bgColor}) {
 const sliderStyle = {
     appearance: "none",
     width: "100%",
