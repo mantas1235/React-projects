@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import { BsSearch } from 'react-icons/bs'
 function HiddenSearch() {
 
@@ -8,6 +8,7 @@ const [uiProps, setUiProps] = useState({
   transition: "all .3s ease",
   opacity:0,
   showSearchicon: true,
+  showSearchBar: false,
   borderBottomColor: "#fff"
 })
 
@@ -45,15 +46,19 @@ useEffect(() => {
   body.background = uiProps.bg
   body.boxShadow = uiProps.shadow
   body.transition = uiProps.transition
-
-}, [uiProps.shadow])
+uiProps.showSearchBar &&  inputEl.current.focus();
+}, [uiProps.shadow], [uiProps.showSearchBar])
 
 
 const showSearch = ()=> {
   setUiProps({
     opacity:1,
-showSearchicon: false
+showSearchicon: false,
+showSearchbar: true
   })
+
+ 
+
 }
 
 
@@ -73,11 +78,15 @@ const handleSearchBlur = ()=> {
   })
 }
 
+
+const inputEl = useRef(null)
+
   return (
     <div className='container' style={{height: "100vh"}}>
         
-        <input type="text" placeholder='Search' style={inputStyle} onFocus={handleSearchFocus} onBlur={handleSearchBlur}/>
-       {uiProps.showSearchicon ? (<BsSearch style={bsSearchStyle}  onClick={showSearch} />) : null}
+
+
+       {uiProps.showSearchicon ? (<BsSearch style={bsSearchStyle}  onClick={showSearch} />) :(<input type="text" placeholder='Search' style={inputStyle} onFocus={handleSearchFocus} onBlur={handleSearchBlur} ref={inputEl}/>)}
         </div>
   )
 }
